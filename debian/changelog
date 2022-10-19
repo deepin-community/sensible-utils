@@ -1,0 +1,314 @@
+sensible-utils (0.0.17) unstable; urgency=medium
+
+  * Bug fix: "Maximum function recursion depth (1000) reached", thanks
+    to Martin-Éric Racine (Closes: #993130). Use command nano
+    instead of nano alias for working arround nano bug.
+
+ -- Bastien Roucariès <rouca@debian.org>  Sun, 29 Aug 2021 17:44:44 +0000
+
+sensible-utils (0.0.16) unstable; urgency=high
+
+  * Upload to unstable, high priority due to which error message.
+
+ -- Bastien Roucariès <rouca@debian.org>  Thu, 26 Aug 2021 15:47:11 +0000
+
+sensible-utils (0.0.15) experimental; urgency=medium
+
+  * Trim trailing whitespace.
+  * debian/copyright: use spaces rather than tabs to start continuation lines.
+  * Bump debhelper from old 11 to 12.
+  * Set debhelper-compat version in Build-Depends.
+  * Document BROWSER variable
+  * Do not write to / if $HOME is not set (Closes: #987675).
+  * Workarround nano bug that fail if TERM is not set.
+  * Merge Bug fix: "Improved implementation of
+    sensible-{browser,editor,pager}",thanks to Jari Aalto
+    (Closes: #445444).
+  * Fix manpages (Closes: #980185)
+  * Merge translation:
+    + de (Closes: #980183)
+    + pt (Closes: #980197)
+  * Bug fix: "replace "which" by "command -v" in
+    sensible-browser, sensible-editor and sensible-pager", thanks to
+    Harald Dunkel (Closes: #972999).
+
+ -- Bastien Roucariès <rouca@debian.org>  Tue, 24 Aug 2021 21:26:38 +0000
+
+sensible-utils (0.0.14) unstable; urgency=medium
+
+  [Boyuan Yang <byang@debian.org>]
+  * debian/copyright: Drop words about alioth, set upstream project
+    to be the same as Salsa packaging repository.
+
+  [Bastien Roucaries <rouca@debian.org]
+  * Bug fix: "select-editor should quote path used in the script", thanks
+    to Nicolas Évrard (Closes: #913559).
+  * Bug fix: "FTBFS: po4a::po: Invalid value for option porefs,
+    thanks to Lucas Nussbaum (Closes: #975851).
+  * Improve man pages (Closes: #969587,#397051)
+  * Fix recursion protection. Thanks to Matthew Gabeler-Lee
+    (Closes: #953134)
+  * Update on Portuguese translation of manpage.
+    (Closes: #962578,#923807)
+
+ -- Bastien Roucariès <rouca@debian.org>  Tue, 12 Jan 2021 22:01:50 +0000
+
+sensible-utils (0.0.13) experimental; urgency=medium
+
+  * Fix FTBFS po4a::po: Invalid value for option 'porefs'
+    Change value for option 'porefs' from 'noline,wrap' to 'noline'
+    Closes: #963424
+  * d/rules: remove override_dh_autoconfigure
+    Closes: #944897
+  * d/control:
+    Update standards version to 4.5.0.2
+    Add build-depends: debhelper (>= 11)
+    Drop build-depends-indep: dpkg
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Tue, 07 Jul 2020 18:00:29 -0500
+
+sensible-utils (0.0.12+nmu1) unstable; urgency=medium
+
+  [ Felipe Sateler ]
+  * Non-maintainer upload.
+  * Do not attempt to discover the executable path of empty variables.
+    Otherwise, which outputs a message like `usage: which [-as] program ... `.
+    Instead of invoking which without arguments, lets skip the check
+    (Closes: #927022)
+
+  [ Boyuan Yang ]
+  * debian/control: Update Vcs-* fields and use git packaging repo under Salsa Debian group.
+
+ -- Felipe Sateler <fsateler@debian.org>  Sun, 17 Nov 2019 09:21:22 -0300
+
+sensible-utils (0.0.12) unstable; urgency=medium
+
+  * Fix sensible-browser launches $BROWSER with empty argument
+    (Closes: #885688)
+  * Bug fix: "[INTL:de] updated German man page translation", thanks to
+    Helge Kreutzmann (Closes: #877553).
+  * Add basic testing.
+  * Bump compat and policy (no changes)
+
+ -- Bastien Roucariès <rouca@debian.org>  Mon, 12 Mar 2018 11:17:53 +0100
+
+sensible-utils (0.0.11) unstable; urgency=high
+
+  * Bug fix: "Argument injection in sensible-browser", thanks to Gabriel
+    Corona (Closes: #881767). Fixing this bug by not supporting %s
+    expansion in $BROWSER. Users needing this feature (like running
+    'firefox -remote "openURL(%s,new-window)"',  with %s the URL)
+    could use a shell wrapper. Remove also multiple browser support.
+  * Fixing #881767 means not using unsupportable %s in $BROWSER, thus
+    Closes: #289745.
+
+ -- Bastien Roucariès <rouca@debian.org>  Wed, 15 Nov 2017 16:30:02 +0100
+
+sensible-utils (0.0.10) unstable; urgency=medium
+
+  * Acknowledge NMU
+  * Add myself as uploader.
+  * Bump policy no change.
+  * Update copyright.
+  * Use debhelper.
+  * Harden recursive execution of script
+    (Closes: #775727, #390580).
+  * Bug fix: "[l10n:cs] Initial Czech translation of package
+    sensible-utils", thanks to Michal Simunek (Closes: #673157).
+  * Bug fix: "[INTL:pt] Portuguese translation of manpage", thanks to
+    Américo Monteiro (Closes: #758072).
+  * Bug fix: "Manpages not utf-8 encoded", thanks to Sandro Mani (Closes:
+    #739688).
+  * Bug fix: "requires gettext but no dependency on gettext-base", thanks
+    to Jonathan Dowland (Closes: #728612). Supply a echo -n gettext in
+    private dir.
+  * Bug fix: "Manpage should reference appropriate section of Debian
+    Policy", thanks to Jari Aalto (Closes: #603243).
+  * Bug fix: "Infinite loop in select-editor when nano is not installed
+    (batch-mode)", thanks to Niels Thykier (Closes: #777168).
+  * Bug fix: "please sort editors by priority in select-editor", thanks to
+    David Kalnischkies (Closes: #720853).
+
+ -- Bastien Roucariès <rouca@debian.org>  Fri, 11 Aug 2017 09:06:21 +0200
+
+sensible-utils (0.0.9+nmu1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+
+  [ Jérémy Bobbio ]
+  * Make package build reproducibly:
+    - Stop recording current time when creating gzip files.
+    - Fix mtimes before creating binary packages.
+
+  [ Ximin Luo ]
+  * Make package build reproducible, pt 2:
+    - Sort file list, to avoid filesystem differences.
+    - Explicitly install every language man dir, to avoid umask differences.
+    - Slightly refactoring for readability.
+
+ -- Ximin Luo <infinity0@debian.org>  Wed, 28 Jun 2017 18:17:02 +0200
+
+sensible-utils (0.0.9) unstable; urgency=low
+
+  * Fix bashism in select-editor
+    Patch by Thorsten Glaser
+    Closes: #711321
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Thu, 06 Jun 2013 22:19:39 +1000
+
+sensible-utils (0.0.8) unstable; urgency=low
+
+  * Merge 0.0.7ubuntu1
+    - add select-editor (Closes: #482774)
+    - modify sensible-editor to pick the editor from select-editor
+  * Removes reference to non-existent BROWSER documentation in environ(7)
+    Patch by Matt Kraai
+    Closes: #567250
+  * Commented-out Vcs-* headers
+    Closes: #661752
+  * Standards Version is 3.9.4
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Thu, 06 Jun 2013 12:27:15 +1000
+
+sensible-utils (0.0.7ubuntu1) quantal; urgency=low
+
+  * Merge from Debian unstable. Remaining changes:
+    - add select-editor (forwarded as bug #482774)
+    - modify sensible-editor to pick the editor from select-editor
+
+ -- Logan Rosen <logatronico@gmail.com>  Wed, 11 Jul 2012 23:32:04 -0400
+
+sensible-utils (0.0.7) unstable; urgency=low
+
+  [ David Prévot <taffit@debian.org> ]
+  * set Multi-Arch: foreign. Closes: #666102
+  * French, by David Prévot. Closes: #603883
+  * German, by Helge Kreutzmann. Closes: #625897
+  * Spanish, by Omar Campagne. Closes: #636239
+  * Japanese, by KURASAWA Nozomu. Closes: #650641
+  * Italian, by Beatrice Torracca. Closes: #672650
+
+  [ Anibal Monsalve Salazar ]
+  * Fix out-of-date-standards-version
+  * Fix debian-rules-missing-recommended-target
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Mon, 14 May 2012 17:23:27 +1000
+
+sensible-utils (0.0.6ubuntu2) natty; urgency=low
+
+  * Makefile.in: add select-editor and its manpage, LP: #682997
+
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Tue, 30 Nov 2010 12:30:23 -0600
+
+sensible-utils (0.0.6ubuntu1) natty; urgency=low
+
+  * Merge from debian unstable (LP: #682137). Remaining changes:
+    - add select-editor (forwarded as bug #482774)
+    - modify sensible-editor to pick the editor from select-editor
+
+ -- Bhavani Shankar <bhavi@ubuntu.com>  Mon, 29 Nov 2010 20:02:40 +0530
+
+sensible-utils (0.0.6) unstable; urgency=low
+
+  * New maintainer
+  * French man page update from David Prévot
+    Closes: 603883
+  * Fix copyright-refers-to-symlink-license
+  * Fix maintainer-script-without-set-e
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Fri, 26 Nov 2010 00:18:17 +1100
+
+sensible-utils (0.0.5ubuntu1) natty; urgency=low
+
+  * Merge from debian unstable (LP: #675206), remaining changes:
+    - add select-editor (forwarded as bug #482774)
+    - modify sensible-editor to pick the editor from select-editor
+
+ -- Lorenzo De Liso <blackz@ubuntu.com>  Sun, 14 Nov 2010 16:23:25 +0100
+
+sensible-utils (0.0.5) unstable; urgency=low
+
+  * sensible-editor.1: Add reference to VISUAL environment variable.
+    closes: #603244.
+  * Add Spanish man page from Omar Campagne.  closes: #602283.
+  * Bump to Standards-Version 3.9.1.
+  * Orphan the package.
+
+ -- Clint Adams <clint@gnu.org>  Sun, 14 Nov 2010 01:24:38 -0500
+
+sensible-utils (0.0.4ubuntu1) maverick; urgency=low
+
+  * Merge from debian unstable.  Remaining changes:
+    - add select-editor (forwarded as bug #482774)
+    - modify sensible-editor to pick the editor from select-editor
+
+ -- Michael Vogt <michael.vogt@ubuntu.com>  Thu, 24 Jun 2010 20:58:20 +0200
+
+sensible-utils (0.0.4) unstable; urgency=low
+
+  * Patch from Robert Luberda to fix previous Polish man page patch.
+    closes: #576745.
+
+ -- Clint Adams <schizo@debian.org>  Wed, 07 Apr 2010 18:43:59 -0400
+
+sensible-utils (0.0.3) unstable; urgency=low
+
+  * Polish man page translations from Robert Luberda.  closes: #576745.
+  * Bump to Standards-Version 3.8.4.
+
+ -- Clint Adams <schizo@debian.org>  Tue, 06 Apr 2010 19:12:34 -0400
+
+sensible-utils (0.0.2) unstable; urgency=low
+
+  * sensible-browser: patch from Martin Krafft to avoid manufacturing
+    null browser arguments.  closes: #556428.
+  * Bump to Standards-Version 3.8.3.
+  * Switch to 3.0 (native) source format.
+
+ -- Clint Adams <schizo@debian.org>  Thu, 26 Nov 2009 14:42:48 -0500
+
+sensible-utils (0.0.1ubuntu3) lucid; urgency=low
+
+  * sensible-editor: make this slightly more robust, to handle both
+    EDITOR=sensible-editor and EDITOR=/usr/bin/sensible-editor, LP: #554234
+
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Wed, 24 Mar 2010 22:23:35 -0700
+
+sensible-utils (0.0.1ubuntu2) lucid; urgency=low
+
+  * sensible-editor: fix recursion when EDITOR|VISUAL|SENSIBLE_EDITOR
+    is /usr/bin/sensible-editor, LP: #546592
+
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Wed, 24 Mar 2010 19:25:39 -0700
+
+sensible-utils (0.0.1ubuntu1) lucid; urgency=low
+
+  * Copy select-editor support from debianutils (LP: #462515):
+    - Makefile.am: Add select-editor to bin scripts and man page lists.
+    - Makefile.in: Add select-editor to bin scripts and man page lists.
+    - debian/control: Add select-editor to package description.
+    - select-editor: Interactive utility to prompt for and save editor on a
+      per user basis in ~/.selected_editor.
+    - select-editor.1: Manpage for select-editor.
+    - sensible-editor: Source ~/.selected_editor and use SELECTED_EDITOR if
+      found, otherwise calling select-editor.
+    - sensible-editor.1: Updated to cross-reference select-editor(1).
+  * Dropped modifications to pot file.  Translation support doesn't work
+    as-is anyway (needs to pass domain to gettext, needs to install .mo
+    file, needs to show up in rosetta)
+
+ -- Michael Terry <michael.terry@canonical.com>  Tue, 08 Dec 2009 12:52:41 +0000
+
+sensible-utils (0.0.1) unstable; urgency=low
+
+  * Bump to Standards-Version 3.8.1.
+  * Switch to arch:all.
+  * Update Replaces to debianutils (<= 2.32.3).
+
+ -- Clint Adams <schizo@debian.org>  Thu, 26 Mar 2009 21:07:24 -0400
+
+sensible-utils (0.0.0) unstable; urgency=low
+
+  * Initial release.
+
+ -- Clint Adams <schizo@debian.org>  Mon, 16 Feb 2009 11:24:37 -0500

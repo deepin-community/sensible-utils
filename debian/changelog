@@ -1,3 +1,9 @@
+sensible-utils (0.0.17+deepin1) unstable; urgency=medium
+
+  * feat: add sw64 support.
+
+ -- hudeng <hudeng@deepin.org>  Wed, 04 Jun 2025 17:51:47 +0800
+
 sensible-utils (0.0.17) unstable; urgency=medium
 
   * Bug fix: "Maximum function recursion depth (1000) reached", thanks

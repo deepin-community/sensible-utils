@@ -1,4 +1,4 @@
-sensible-utils (0.0.17+deepin1) unstable; urgency=medium
+sensible-utils (0.0.17deepin1) unstable; urgency=medium
 
   * feat: add sw64 support.
 

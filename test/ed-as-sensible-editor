@@ -3,11 +3,7 @@
 set -e
 TEMPFILE=$(mktemp -p "")
 echo $TEMPFILE
-if [ "$(uname -m)" = "sw_64" ];then
-	trap "rm -rf $TEMPFILE" HUP INT QUIT TERM STOP EXIT
-else
-	trap "rm -rf $TEMPFILE" HUP INT QUIT TERM STOP PWR EXIT
-fi
+trap "rm -rf $TEMPFILE" HUP INT QUIT TERM STOP PWR EXIT
 
 EDITOR=ed sensible-editor "$TEMPFILE" <<EOF
 a
